@@ -42,20 +42,14 @@ class ViewController: UIViewController {
             }
             print("Operation \"D\" finished")
         }
-        let opE = BlockOperation {
-            print("Operation \"E\" started")
-            for _ in 0..<1000000 {
-                // do nothing
-            }
-            print("Operation \"E\" finished")
-        }
+        
         
         
         
         //MARK: -  test 1 (maxConcurrentOperationCount = 6 )
         //
         //        operationQueue.maxConcurrentOperationCount = 6
-        //        operationQueue.addOperations([opA, opB, opC, opD, opE], waitUntilFinished: false)
+        //        operationQueue.addOperations([opA, opB, opC, opD], waitUntilFinished: false)
         
         //MARK:  CONCLUSION
         //output: started and finished in unpredictable order
@@ -68,7 +62,7 @@ class ViewController: UIViewController {
         //MARK: - test 2 (maxConcurrentOperationCount = 2)
         
         //        operationQueue.maxConcurrentOperationCount = 2
-        //        operationQueue.addOperations([opA, opB, opC, opD, opE], waitUntilFinished: false)
+        //        operationQueue.addOperations([opA, opB, opC, opD], waitUntilFinished: false)
         
         //MARK: CONCLUSION
         //output: "maxConcurrentOperationCount = 2" sets operations limit to 2, so only 2 operations start at a time simultaneously, A and B operations start first, then , it doesn't depend exactly which one finishes first , the other operation starts, the logic remains the same for completion
@@ -93,7 +87,7 @@ class ViewController: UIViewController {
     
     //MARK: - test 4(operation A's priority = low)
         opA.queuePriority = .low
-        operationQueue.addOperations([opA, opB, opC, opD, opE], waitUntilFinished: false)
+        operationQueue.addOperations([opA, opB, opC, opD], waitUntilFinished: false)
         
         //MARK: CONCLUSION
         //output: A started last because its priority was set to low, finishing was not depending on that though.
