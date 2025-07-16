@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     
     
     //MARK: CONCLUSION
-    //output: because of the set dependencies, C started first, when finished, B started ,and when B finished, D started and finished, their execution depended on each other.
+    //output: because of the set dependencies, C started first, when finished, B started ,and when B finished, D started and finished, their execution depend on each other.
     
     
     
