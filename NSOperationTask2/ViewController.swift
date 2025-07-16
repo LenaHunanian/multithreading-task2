@@ -96,6 +96,6 @@ class ViewController: UIViewController {
         operationQueue.addOperations([opA, opB, opC, opD, opE], waitUntilFinished: false)
         
         //MARK: CONCLUSION
-        //output: A started in the last because its priority was set to low, finishing was not depending on that though.
+        //output: A started last because its priority was set to low, finishing was not depending on that though.
     }
 }
